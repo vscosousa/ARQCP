@@ -1,0 +1,14 @@
+output: reset_bit.o main.o
+	gcc reset_bit.o main.o -o output
+
+reset_bit.o: reset_bit.s
+	gcc -g -Wall -c reset_bit.s
+	
+main.o: main.c
+	gcc -g -Wall -c main.c
+	
+clean:
+	rm -f *.0 output
+	
+run: output
+	./output
